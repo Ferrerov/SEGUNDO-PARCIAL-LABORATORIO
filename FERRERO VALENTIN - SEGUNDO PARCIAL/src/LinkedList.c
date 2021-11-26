@@ -451,6 +451,10 @@ LinkedList* ll_map(LinkedList* this, int (*pFunc)(void*))
 				{
 					ll_add(newArray, auxElement);
 				}
+				/*if(pFunc(auxElement) == 1)
+				{
+					ll_add(newArray, auxElement);
+				}*/
 			}
 		}
 	}

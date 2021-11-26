@@ -39,31 +39,31 @@ int main(void) {
 		switch(option)
 		{
 			case 1:
-				printf("Usted ha seleccionado la opción 1: Cargar los datos de los libros desde un archivo.\n");
+				printf("\nUsted ha seleccionado la opción 1: Cargar los datos de los libros desde un archivo.\n");
 				if( flagCargaLibro != 0 && Controller_CargarLibrosDesdeTxt(listaLibros) == 0)
 				{
-					printf("Se han cargado los datos exitosamente.\n");
+					printf("\nSe han cargado los datos exitosamente.\n");
 					flagCargaLibro = 0;
 				}
 				else
 				{
-					printf("No se ha podido cargar los datos.\n");
+					printf("\nNo se ha podido cargar los datos.\n");
 				}
 				break;
 			case 2:
-				printf("Usted ha seleccionado la opción 2: Cargar los datos de las editoriales desde un archivo.\n");
+				printf("\nUsted ha seleccionado la opción 2: Cargar los datos de las editoriales desde un archivo.\n");
 				if( flagCargaEditorial != 0 && Controller_CargarEditorialesDesdeTxt(listaEditoriales) == 0)
 				{
-					printf("Se han cargado los datos exitosamente.\n");
+					printf("\nSe han cargado los datos exitosamente.\n");
 					flagCargaEditorial = 0;
 				}
 				else
 				{
-					printf("No se ha podido cargar los datos.\n");
+					printf("\nNo se ha podido cargar los datos.\n");
 				}
 				break;
 			case 3:
-				printf("Usted ha seleccionado la opción 3: Ordenar la lista por autor.\n");
+				printf("\nUsted ha seleccionado la opción 3: Ordenar la lista por autor.\n");
 				if( flagCargaLibro == 0 && flagCargaEditorial == 0 && Controller_OrdenarLibros(listaLibros) == 0)
 				{
 					Controller_ImprimirListadoLibros(listaLibros, listaEditoriales);
@@ -71,32 +71,32 @@ int main(void) {
 				}
 				else
 				{
-					printf("No hay libros para ordenar o ya estan ordenados.\n");
+					printf("\nNo hay libros para ordenar o ya estan ordenados.\n");
 				}
 				break;
 			case 4:
-				printf("Usted ha seleccionado la opción 4: Ver listado de todos los libros.\n");
+				printf("\nUsted ha seleccionado la opción 4: Ver listado de todos los libros.\n");
 				if(flagCargaLibro != 0 || flagCargaEditorial != 0 || Controller_ImprimirListadoLibros(listaLibros, listaEditoriales) != 0 )
 				{
-					printf("No hay libros para listar.\n");
+					printf("\nNo hay libros para listar.\n");
 				}
 				break;
 			case 5:
-				printf("Usted ha seleccionado la opción 5: Ver y guardar listado de los libros de la editorial MINOTAURO.\n");
+				printf("\nUsted ha seleccionado la opción 5: Ver y guardar listado de los libros de la editorial MINOTAURO.\n");
 				if( flagCargaLibro != 0 || flagCargaEditorial != 0 || Controller_ListadoPorEditorial(listaLibros, listaEditoriales)!= 0 )
 				{
-					printf("No hay libros para listar.\n");
+					printf("\nNo hay libros para listar.\n");
 				}
 				else
 				{
-					printf("Se ha guardado el listado.\n");
+					printf("\nSe ha guardado el listado.\n");
 				}
 				break;
 			case 6:
-				printf("Usted ha seleccionado la opción 6: Realizar descuentos a editoriales PLANETA y SILO XXI EDITORES y guardar.\n");
+				printf("\nUsted ha seleccionado la opción 6: Realizar descuentos a editoriales PLANETA y SILO XXI EDITORES y guardar.\n");
 				if( flagCargaLibro != 0 || flagCargaEditorial != 0 || Controller_Descuentos(listaLibros, listaEditoriales)!= 0 )
 				{
-					printf("No hay libros para listar.\n");
+					printf("\nNo hay libros para listar.\n");
 				}
 				else
 				{
@@ -108,7 +108,7 @@ int main(void) {
 				break;
 		}
 		fflush(stdin);
-		printf("\nPulse una tecla para continuar");
+		printf("\n\n**************Pulse una tecla para continuar**************\n");
 		getchar();
 	}while(option != 7);
 
