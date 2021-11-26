@@ -117,7 +117,8 @@ int Controller_ListadoPorEditorial(LinkedList* pArrayLibro, LinkedList* pArrayEd
 		if(pNuevaLista != NULL && ll_len(pNuevaLista) > 0) //Verifica que la nueva lista no sea NULL y que tenga al menos un elemento
 		{
 			Controller_ImprimirListadoLibros(pNuevaLista, pArrayEditorial); //Imprime el listado de libros pero solo de una editorial
-			GetString(ubicacion,"\nIngrese el archivo a guardar (.csv): ", "Error, por favor ingrese al menos un caracter", 4); //Pide al usuario el nombre del archivo a guardar
+			GetString(ubicacion,"\nIngrese el nombre del archivo a guardar: ", "Error, por favor ingrese al menos un caracter", 4); //Pide al usuario el nombre del archivo a guardar
+			strcat(ubicacion, ".csv");
 
 			pArchivo = fopen(ubicacion, "w"); //Abre o crea el archivo en modo escritura
 			if(pArchivo != NULL && Parser_GuardarLibroTexto(pArchivo, pNuevaLista) == 0) //Verifica si el archivo existe y se pudo guardar
