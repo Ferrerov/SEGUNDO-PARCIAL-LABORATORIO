@@ -49,4 +49,7 @@ int Controller_ImprimirListadoLibros(LinkedList* pArrayLibro, LinkedList* pArray
 /// @return Retorna (-1) Si no encontro ningun libro de esa editorial o si se ingreso un nombre de archivo incorrecto
 /// 				(0) Si encontro al menos un libro y pudo guardar la lista
 int Controller_ListadoPorEditorial(LinkedList* pArrayLibro, LinkedList* pArrayEditorial);
+
+int Controller_Descuentos(LinkedList* pArrayLibro, LinkedList* pArrayEditorial);
+
 #endif /* CONTROLLER_H_ */

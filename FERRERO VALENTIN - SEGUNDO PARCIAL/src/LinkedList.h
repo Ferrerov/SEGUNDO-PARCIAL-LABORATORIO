@@ -158,3 +158,5 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order);
 /// @return Retorna (NULL) Si ningun elemento coincide con el criterio de pFunc
 /// 				(Puntero a nueva LinkedList) Si al menos un elemento cumplio el criterio de la funcion
 LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*));
+
+LinkedList* ll_map(LinkedList* this, int (*pFunc)(void*));

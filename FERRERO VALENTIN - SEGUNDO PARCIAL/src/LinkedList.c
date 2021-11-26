@@ -433,3 +433,27 @@ LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*))
 	}
 	return newArray;
 }
+
+LinkedList* ll_map(LinkedList* this, int (*pFunc)(void*))
+{
+	LinkedList* newArray = NULL;
+	void *auxElement;
+
+	if(pFunc != NULL && this != NULL && ll_len(this) > 0)
+	{
+		newArray = ll_newLinkedList();
+		if(newArray != NULL)
+		{
+			for(int i = 0; i < ll_len(this); i++)
+			{
+				auxElement = ll_get(this, i);
+				if(pFunc(auxElement) != -1)
+				{
+					ll_add(newArray, auxElement);
+				}
+			}
+		}
+	}
+
+	return newArray;
+}

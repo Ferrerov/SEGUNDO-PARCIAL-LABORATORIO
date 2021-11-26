@@ -135,4 +135,7 @@ int Libro_CompararAutor(void *libroUno, void *libroDos);
 /// 				(0) Si el libro no es de la editorial MINOTAURO
 /// 				(1) Si el libro es de la editorial MINOTAURO
 int Libro_FiltroEditorialMinotauro(void* unLibro);
+
+int Libro_DescuentosPorEditorial(void* unLibro);
+
 #endif /* LIBRO_H_ */

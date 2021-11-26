@@ -217,4 +217,31 @@ int Libro_FiltroEditorialMinotauro(void* unLibro)
 	return retorno;
 }
 
+int Libro_DescuentosPorEditorial(void* unLibro)
+{
+	int retorno = -1;
+	eLibro* auxLibro = NULL;
+	float descuentoAux;
+
+	if(unLibro != NULL)
+	{
+		auxLibro = (eLibro*)unLibro;
+		retorno = 0;
+		if(auxLibro->idEditorial == 1 && auxLibro->precio >= 300)
+		{
+			descuentoAux = (80 * auxLibro->precio)/100;
+			retorno = 1;
+			Libro_SetPrecio(auxLibro, descuentoAux);
+		}
+		if(auxLibro->idEditorial == 2 && auxLibro->precio <= 200)
+		{
+			retorno = 1;
+			descuentoAux = (90 * auxLibro->precio)/100;
+			Libro_SetPrecio(auxLibro, descuentoAux);
+		}
+	}
+
+	return retorno;
+}
+
 

@@ -31,7 +31,8 @@ int main(void) {
 				"3. Ordenar la lista por autor.\n"
 				"4. Ver listado de todos los libros.\n"
 				"5. Ver y guardar listado de los libros de la editorial MINOTAURO.\n"
-				"6. Salir.\n");
+				"6. Realizar descuentos a editoriales PLANETA y SILO XXI EDITORES y guardar.\n"
+				"7. Salir.\n");
 
 		GetInt(&option, "\nIngrese una opción: ", "\nError, ingrese una opción válida: ", 1, 10, 5);
 
@@ -92,13 +93,24 @@ int main(void) {
 				}
 				break;
 			case 6:
-				printf("Usted ha seleccionado la opción 6: Salir.\n");
+				printf("Usted ha seleccionado la opción 6: Realizar descuentos a editoriales PLANETA y SILO XXI EDITORES y guardar.\n");
+				if( flagCargaLibro != 0 || flagCargaEditorial != 0 || Controller_Descuentos(listaLibros, listaEditoriales)!= 0 )
+				{
+					printf("No hay libros para listar.\n");
+				}
+				else
+				{
+					printf("\nSe ha guardado el listado.\n");
+				}
+				break;
+			case 7:
+				printf("Usted ha seleccionado la opción 7: Salir.\n");
 				break;
 		}
 		fflush(stdin);
 		printf("\nPulse una tecla para continuar");
 		getchar();
-	}while(option != 6);
+	}while(option != 7);
 
 	return EXIT_SUCCESS;
 }

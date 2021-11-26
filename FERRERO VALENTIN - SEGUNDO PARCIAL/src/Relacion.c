@@ -23,3 +23,5 @@ int Libro_ImprimirUnLibro( eLibro* unLibro, eEditorial* unaEditorial)
 	}
 	return retorno;
 }
+
+

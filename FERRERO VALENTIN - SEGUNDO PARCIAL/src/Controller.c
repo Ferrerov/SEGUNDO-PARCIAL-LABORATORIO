@@ -94,6 +94,7 @@ int Controller_ImprimirListadoLibros(LinkedList* pArrayLibro, LinkedList* pArray
 		{
 			unLibro = ll_get(pArrayLibro, i); //Obtiene el elemento en la posicion especificada
 			unaEditorial = ll_get(pArrayEditorial, Controller_IndiceEditorialPorId(pArrayEditorial, unLibro->idEditorial)); //Obtiene la estructura eEditorial que coincide
+			fflush(stdin);
 			Libro_ImprimirUnLibro(unLibro, unaEditorial); //Imprime los datos de ambas estructuras
 			retorno = 0;
 		}
@@ -126,6 +127,32 @@ int Controller_ListadoPorEditorial(LinkedList* pArrayLibro, LinkedList* pArrayEd
 			fclose(pArchivo); //Cierra el archivo
 		}
 	}
+
+	return retorno;
+}
+
+int Controller_Descuentos(LinkedList* pArrayLibro, LinkedList* pArrayEditorial)
+{
+	int retorno = -1;
+	LinkedList* pNuevaLista = NULL;
+	FILE *pArchivo;
+
+	if(pArrayLibro != NULL && pArrayEditorial != NULL)
+	{
+		pNuevaLista = ll_map(pArrayLibro, Libro_DescuentosPorEditorial);
+		if(pNuevaLista != NULL && ll_len(pNuevaLista) > 0)
+		{
+			Controller_ImprimirListadoLibros(pNuevaLista, pArrayEditorial);
+
+			pArchivo = fopen("mapeado.csv", "w");
+			if(pArchivo != NULL && Parser_GuardarLibroTexto(pArchivo, pNuevaLista) == 0)
+			{
+				retorno = 0;
+			}
+			fclose(pArchivo);
+		}
+	}
+
 
 	return retorno;
 }

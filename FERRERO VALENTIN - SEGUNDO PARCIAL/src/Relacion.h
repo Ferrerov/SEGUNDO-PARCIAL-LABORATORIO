@@ -18,5 +18,4 @@
 /// 				(0) Si pudo imprimir el libro
 int Libro_ImprimirUnLibro( eLibro* unLibro, eEditorial* unaEditorial);
 
-
 #endif /* RELACION_H_ */
